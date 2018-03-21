@@ -1,0 +1,38 @@
+<div class="container">
+  <table id="tblProximoPartido" class="table_center" style="margin: 0 auto;">
+    <tr>
+      <td>
+        <img src="{{urlLocal}}" id="tblImagenLocal">
+      </td>
+      <td>
+        <table id="tblSubTabla">
+          <tr>
+            <td id="tblVs" style="font-size: 6vh;">VS.</td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <img src="{{urlVisitante}}" id="tblImagenVisitante">
+      </td>
+    </tr>
+  </table>
+  <div class="card-body" style="text-align: center" routerLink="/detalle/{{id}}">
+    MÁS INFORMACIÓN <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+  </div>
+  <br>
+  <hr style="margin:auto;width:60%">
+  <br>
+  <div class="card">
+    <div class="card-body" routerLink="/proximo">
+      PRÓXIMO JUEGO
+    </div>
+    <hr style="margin:auto;width:60%">
+    <div class="card-body" routerLink="/admin">
+      RESULTADO
+    </div>
+    <hr style="margin:auto;width:60%">
+    <div class="card-body" routerLink="/home">
+      TORNEOS
+    </div>
+  </div>
+</div>
