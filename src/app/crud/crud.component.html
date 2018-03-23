@@ -4,16 +4,15 @@
     <input type="text" class="form-control" placeholder="Visitante" [(ngModel)]="partido.visitante" />
     <input type="text" class="form-control" placeholder="Url local" [(ngModel)]="partido.urlLocal" />
     <input type="text" class="form-control" placeholder="Url visitante" [(ngModel)]="partido.urlVisitante" />
-    <input type="text" class="form-control" placeholder="Fecha" [(ngModel)]="partido.fecha" />
+    <input type="datetime-local" class="form-control" placeholder="Fecha" [(ngModel)]="partido.fecha" />
     <input type="text" class="form-control" placeholder="Descripción" [(ngModel)]="partido.descripcion" />
     <input type="text" class="form-control" placeholder="Estadio" [(ngModel)]="partido.estadio" />
-    <input type="text" class="form-control" placeholder="Hora" [(ngModel)]="partido.hora" />
+    <!-- <input type="time" class="form-control" placeholder="Hora" [(ngModel)]="partido.hora" /> -->
     <input type="text" class="form-control" placeholder="TV" [(ngModel)]="partido.tv" />
-    <select class="custom-select" [(ngModel)]="partido.campeonato">      
-      <option value="1">Copa Libertadores</option>
-      <option value="2">Copa Águila</option>
-      <option value="3">Liga Águila</option>
-      <option value="3">Copa Sudamericana</option>
+    <select class="custom-select" [(ngModel)]="partido.campeonato">
+      <ng-container *ngFor="let torneo of torneos">
+        <option value="{{torneo.nombre}}">{{torneo.nombre}}</option>
+      </ng-container>
     </select>
     <br>
     <a class="btn btn-light" (click)="guardarPartido()">Save game</a>

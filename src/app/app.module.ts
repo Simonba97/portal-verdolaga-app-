@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ProximoComponent } from './proximo/proximo.component';
 import { CrudComponent } from './crud/crud.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { ResultadoComponent } from './resultado/resultado.component';
 
 // importaciones necesarias para FIREBASE 
 import { AngularFireModule } from 'angularfire2';
@@ -20,13 +21,16 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 // Services
 import { PartidosService } from './services/partidos.services';
+import { TorneosService } from './services/torneos.services';
+import { EquiposService } from './services/equipos.services';
 
 const appRoutes:Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'proximo', component: ProximoComponent },
   { path: 'admin', component: CrudComponent },
-	{ path: 'detalle/:id', component: DetalleComponent },
+  { path: 'detalle/:id', component: DetalleComponent },
+	{ path: 'resultado', component: ResultadoComponent },
 ]
 
 export const firebaseConfig = {
@@ -44,6 +48,7 @@ export const firebaseConfig = {
     ProximoComponent,
     CrudComponent,
     DetalleComponent,
+    ResultadoComponent,
   ],
 
   imports: [
@@ -55,7 +60,7 @@ export const firebaseConfig = {
     AngularFontAwesomeModule,
     FormsModule,
   ],  
-  providers: [PartidosService],
+  providers: [PartidosService, TorneosService, EquiposService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
