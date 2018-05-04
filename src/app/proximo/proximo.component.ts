@@ -18,11 +18,9 @@ export class ProximoComponent {
 	estadio:string = null;
 	tv:string = null;
 	constructor(private partidosService:PartidosService){
-		partidosService
-			.getPartidos()
-			.valueChanges()
-			.subscribe(partido => {			
-				this.proximoPartido = partido[0];
+		partidosService.getProximoPartido()
+			.then((partido:any)=>{
+				this.proximoPartido = partido;
 				this.local = this.proximoPartido.local;
 				this.visitante = this.proximoPartido.visitante;
 				this.urlLocal = this.proximoPartido.urlLocal;
@@ -31,7 +29,10 @@ export class ProximoComponent {
 				this.hora = this.proximoPartido.hora;
 				this.descripcion = this.proximoPartido.descripcion;
 				this.estadio = this.proximoPartido.estadio;
-				this.tv = this.proximoPartido.tv;
-			});
+				this.tv = this.proximoPartido.tv;   
+			}); // end then
+					
+				
+			
 	}
 }

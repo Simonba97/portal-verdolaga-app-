@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PartidosService } from '../services/partidos.services';
+import * as moment from 'moment';
 
 @Component({
 	selector: 'app-resultado',
@@ -22,22 +23,34 @@ export class ResultadoComponent {
 
 	constructor(private router:ActivatedRoute,
 		private partidosService:PartidosService) {
-		console.log(this.router.snapshot.queryParams['referer']);
-		partidosService
-			.getPartidos()
-			.valueChanges()
-			.subscribe(partido => {			
-				this.resultado = partido[0];
+		// partidosService
+		// 	.getPartidos()
+		// 	.valueChanges()
+		// 	.subscribe(partido => {			
+		// 		this.resultado = partido[0];
+		// 		this.local = this.resultado.local;
+		// 		this.visitante = this.resultado.visitante;
+		// 		this.urlLocal = this.resultado.urlLocal;
+		// 		this.urlVisitante = this.resultado.urlVisitante;
+		// 		this.fecha = this.resultado.fecha;
+		// 		this.hora = this.resultado.hora;
+		// 		this.descripcion = this.resultado.descripcion;
+		// 		this.estadio = this.resultado.estadio;
+		// 		this.tv = this.resultado.tv;
+		// 	});
+
+		partidosService.getAnteriorPartido()
+			.then((partido:any)=>{
+				this.resultado = partido;
 				this.local = this.resultado.local;
 				this.visitante = this.resultado.visitante;
 				this.urlLocal = this.resultado.urlLocal;
 				this.urlVisitante = this.resultado.urlVisitante;
-				this.fecha = this.resultado.fecha;
-				this.hora = this.resultado.hora;
+				this.fecha = moment(this.resultado.fecha).format('DD/MM/YYYY HH:mm');
 				this.descripcion = this.resultado.descripcion;
 				this.estadio = this.resultado.estadio;
 				this.tv = this.resultado.tv;
-			});
+			}); // end then
 	}
 
 } 

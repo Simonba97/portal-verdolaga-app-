@@ -10,6 +10,7 @@ import { ProximoComponent } from './proximo/proximo.component';
 import { CrudComponent } from './crud/crud.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { ResultadoComponent } from './resultado/resultado.component';
+import { TorneosComponent } from './torneos/torneos.component';
 
 // importaciones necesarias para FIREBASE 
 import { AngularFireModule } from 'angularfire2';
@@ -30,7 +31,8 @@ const appRoutes:Routes = [
   { path: 'proximo', component: ProximoComponent },
   { path: 'admin', component: CrudComponent },
   { path: 'detalle/:id', component: DetalleComponent },
-	{ path: 'resultado', component: ResultadoComponent },
+  { path: 'resultado', component: ResultadoComponent },
+	{ path: 'torneos', component: TorneosComponent },
 ]
 
 export const firebaseConfig = {
@@ -49,6 +51,7 @@ export const firebaseConfig = {
     CrudComponent,
     DetalleComponent,
     ResultadoComponent,
+    TorneosComponent,
   ],
 
   imports: [
